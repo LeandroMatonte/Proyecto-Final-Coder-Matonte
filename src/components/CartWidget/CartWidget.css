@@ -1,0 +1,16 @@
+.cart-button {
+    position: relative;
+    width: 20px;
+}
+
+.cart-quantity {
+    position: absolute;
+    text-align: center;
+    background-color: #C63333;
+    right: -10px;
+    top: -10px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    font-size: 12px;
+}

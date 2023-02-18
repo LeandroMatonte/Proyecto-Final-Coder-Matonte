@@ -1,0 +1,47 @@
+:root {
+  --padding-s: 20px;
+  --padding-m: 40px;
+  --padding-g: 120px;
+  --gap-list-item-s: 20px;
+  --gap-list-item-m: 40px;
+  --border-radius-s: 6px;
+  --color-principal: #191919;
+}
+
+.App-section {
+  min-height: 100vh;
+  font-size: calc(10px + 2vmin);
+  padding-left: var(--padding-g);
+  padding-right: var(--padding-g);
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.product-slider {
+  display: flex;
+  width: 100%;
+  gap: 24px;
+}
+
+@media (max-width: 992px) {
+  .App-section {
+    padding-left: var(--padding-m);
+    padding-right: var(--padding-m);
+  }
+}
+
+@media (max-width: 768px) {
+  .App-section {
+    padding-left: var(--padding-m);
+    padding-right: var(--padding-m);
+  }
+}
+
+@media (max-width: 576px) {
+  .App-section {
+    padding-left: var(--padding-s);
+    padding-right: var(--padding-s);
+  }
+}
