@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/PreEntrega1Matonte/static/css/main.d6d0a8c7.css",
+    "main.js": "/PreEntrega1Matonte/static/js/main.3d8605d7.js",
+    "static/js/787.06a440d1.chunk.js": "/PreEntrega1Matonte/static/js/787.06a440d1.chunk.js",
+    "static/media/modelo1.jpg": "/PreEntrega1Matonte/static/media/modelo1.296a8b36a43082eb38ae.jpg",
+    "static/media/modelo2.jpg": "/PreEntrega1Matonte/static/media/modelo2.fbe13a44c1f6f86cc75e.jpg",
+    "static/media/modelo3.jpg": "/PreEntrega1Matonte/static/media/modelo3.a02c9409228ed4003a64.jpg",
+    "index.html": "/PreEntrega1Matonte/index.html",
+    "main.d6d0a8c7.css.map": "/PreEntrega1Matonte/static/css/main.d6d0a8c7.css.map",
+    "main.3d8605d7.js.map": "/PreEntrega1Matonte/static/js/main.3d8605d7.js.map",
+    "787.06a440d1.chunk.js.map": "/PreEntrega1Matonte/static/js/787.06a440d1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d6d0a8c7.css",
+    "static/js/main.3d8605d7.js"
+  ]
+}
