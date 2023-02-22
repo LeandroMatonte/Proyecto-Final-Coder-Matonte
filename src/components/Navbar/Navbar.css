@@ -12,6 +12,11 @@
   z-index: 100;
 }
 
+.Navbar .brand {
+  font-size: 22px;
+  font-weight: bold;
+}
+
 .Navbar .nav-links-container {
   display: flex;
 }
