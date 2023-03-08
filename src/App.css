@@ -2,45 +2,50 @@
   --padding-s: 20px;
   --padding-m: 40px;
   --padding-g: 120px;
+  --margin-s: 20px;
+  --margin-m: 40px;
+  --margin-g: 120px;
+  --padding-sides-home-s: 20px;
+  --padding-sides-home-m: 40px;
+  --padding-sides-home: 120px;
+  --padding-sides-item-detail: 240px;
   --gap-list-item-s: 20px;
   --gap-list-item-m: 40px;
   --border-radius-s: 6px;
   --color-principal: #191919;
+  --font-size-title: 18px;
+  --font-size-price: 20px;
+  --font-size-description: 18px;
 }
 
-.App-section {
+.app-container {
   min-height: 100vh;
   font-size: calc(10px + 2vmin);
   padding-left: var(--padding-g);
   padding-right: var(--padding-g);
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-.product-slider {
-  display: flex;
-  width: 100%;
-  gap: 24px;
+a {
+  color: unset;
+  text-decoration: none;
 }
 
 @media (max-width: 992px) {
-  .App-section {
+  .app-container {
     padding-left: var(--padding-m);
     padding-right: var(--padding-m);
   }
 }
 
 @media (max-width: 768px) {
-  .App-section {
+  .app-container {
     padding-left: var(--padding-m);
     padding-right: var(--padding-m);
   }
 }
 
 @media (max-width: 576px) {
-  .App-section {
+  .app-container {
     padding-left: var(--padding-s);
     padding-right: var(--padding-s);
   }

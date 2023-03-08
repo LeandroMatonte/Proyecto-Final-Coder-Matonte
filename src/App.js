@@ -1,45 +1,21 @@
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
+import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
+import CategoriesListContainer from "./components/CategoriesListContainer/CategoriesListContainer";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const App = () => {
-  const productos_1 = [
-    {
-      id: 1,
-      titulo: "prod1",
-      descripcion: "descripcion 1",
-    },
-    {
-      id: 2,
-      titulo: "prod2",
-      descripcion: "descripcion 2",
-    },
-    {
-      id: 3,
-      titulo: "prod3",
-      descripcion: "descripcion 3",
-    },
-    {
-      id: 4,
-      titulo: "prod4",
-      descripcion: "descripcion 4",
-    },
-    {
-      id: 5,
-      titulo: "prod5",
-      descripcion: "descripcion 5",
-    },
-  ];
-
   return (
-    <>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Navbar />
-      <div className="App">
-        <section className="App-section">
-          <ItemListContainer slides={productos_1} />
-        </section>
-      </div>
-    </>
+      <Routes>
+        <Route exact path="/" element={<ItemListContainer />} />
+        <Route exact path="/category/:id" element={<ItemListContainer />} />
+        <Route exact path="/categories" element={<CategoriesListContainer />} />
+        <Route exact path="/item/:id" element={<ItemDetailContainer />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 

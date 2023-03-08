@@ -1,0 +1,76 @@
+.Navbar-item-detail nav {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.app-container.item-detail {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.item-detail-container {
+  display: flex;
+  margin: var(--margin-s) 0;
+  gap: var(--margin-s);
+}
+
+.item-detail-image-container {
+  flex: 1 1 60%;
+}
+
+.item-detail-image-container .item-detail-image {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+}
+
+.item-detail-image-container .item-detail-image.loading {
+  background: #0003;
+}
+
+.item-detail-details-container {
+  flex: 1 1 40%;
+}
+
+.item-detail-details {
+  border-radius: var(--border-radius-s);
+  border: 1px solid #0003;
+  padding: var(--padding-s);
+}
+
+.item-detail-details .item-detail-title {
+  font-size: calc(var(--font-size-title) * 1.4);
+  font-weight: 400;
+  margin: 0;
+}
+
+.item-detail-details .item-detail-price {
+  font-size: calc(var(--font-size-price) * 1.4);
+  font-weight: 400;
+  margin: 0;
+}
+
+.item-detail-details .item-detail-description {
+  font-size: var(--font-size-description);
+  font-weight: 400;
+  margin: 0;
+}
+
+.btn {
+  font-size: var(--font-size-title);
+  border: none;
+  border-radius: var(--border-radius-s);
+  padding: calc(var(--padding-s) / 2) var(--padding-s);
+  transition: all .125s ease-in;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+.btn.btn-primary {
+  color: #FFF;
+  background: #3F88C5;
+}
+
+.btn.btn-primary:hover {
+  background: #276aa0;
+}

@@ -1,68 +1,32 @@
+import { useEffect, useState } from "react";
 import "./ItemListContainer.css";
-import ListItem from "../ListItem/ListItem";
-import modelo1 from "../../img/modelo1.jpg";
-import modelo2 from "../../img/modelo2.jpg";
-import modelo3 from "../../img/modelo3.jpg";
-
-const productos = [
-  {
-    id: 1,
-    img: modelo1,
-    titulo: "Blusa",
-    precio: 1.899,
-  },
-  {
-		id: 2,
-    img: modelo2,
-    titulo: "Conjunto",
-    precio: 1.899,
-  },
-  {
-		id: 3,
-    img: modelo3,
-    titulo: "Gorro",
-    precio: 1.899,
-  },
-	{
-    id: 4,
-    img: modelo1,
-    titulo: "Blusa",
-    precio: 1.899,
-  },
-  {
-		id: 5,
-    img: modelo2,
-    titulo: "Conjunto",
-    precio: 1.899,
-  },
-  {
-		id: 6,
-    img: modelo3,
-    titulo: "Gorro",
-    precio: 1.899,
-  },
-	{
-		id: 7,
-    img: modelo1,
-    titulo: "Blusa",
-    precio: 1.899,
-  },
-  {
-		id: 8,
-    img: modelo2,
-    titulo: "Conjunto",
-    precio: 1.899,
-  },
-];
+import ItemList from "../ItemList/ItemList";
+import { useParams } from "react-router-dom";
 
 const ItemListContainer = () => {
-  return (
-    <div className="list-item-container">
-      {productos.map((producto) => {
-        return <ListItem key={producto.id} producto={producto} />;
-      })}
-    </div>
-  );
+  const { id } = useParams();
+
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    const filterByCategory = (products) => {
+      return products.filter((product) => product.category.id === parseInt(id));
+    };
+
+    const getProducts = async () => {
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}/products?offset=0&limit=36`
+      );
+      let data = await response.json();
+      if (id) {
+        data = filterByCategory(data);
+      }
+      setProducts(data);
+    };
+    
+    getProducts();
+  }, [id]);
+
+  return <ItemList products={products}></ItemList>;
 };
 
 export default ItemListContainer;

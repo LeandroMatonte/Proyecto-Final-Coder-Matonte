@@ -1,15 +1,20 @@
 .Navbar {
   background-color: var(--color-principal);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: white;
-  padding-left: var(--padding-g);
-  padding-right: var(--padding-g);
+
+  padding-left: var(--padding-sides-home);
+  padding-right: var(--padding-sides-home);
   height: 80px;
   position: sticky;
   top: 0;
   z-index: 100;
+}
+
+.Navbar nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  height: 100%;
 }
 
 .Navbar .brand {
@@ -24,7 +29,7 @@
 .Navbar .nav-links-container .nav-link {
   position: relative;
   text-decoration: none;
-  color: #FFF;
+  color: #fff;
   padding: var(--padding-s);
 }
 
@@ -34,10 +39,10 @@
   bottom: 0;
   left: 0;
   height: 2px;
-  background: #FFF;
+  background: #fff;
   opacity: 0;
   width: 100%;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 
 .Navbar .nav-links-container .nav-link:hover::after {
@@ -50,21 +55,21 @@
 
 @media (max-width: 992px) {
   .Navbar {
-    padding-left: var(--padding-m);
-    padding-right: var(--padding-m);
+    padding-left: var(--padding-sides-home-m);
+    padding-right: var(--padding-sides-home-m);
   }
 }
 
 @media (max-width: 768px) {
   .Navbar {
-    padding-left: var(--padding-m);
-    padding-right: var(--padding-m);
+    padding-left: var(--padding-sides-home-m);
+    padding-right: var(--padding-sides-home-m);
   }
 }
 
 @media (max-width: 576px) {
   .Navbar {
-    padding-left: var(--padding-s);
-    padding-right: var(--padding-s);
+    padding-left: var(--padding-sides-home-s);
+    padding-right: var(--padding-sides-home-s);
   }
 }
