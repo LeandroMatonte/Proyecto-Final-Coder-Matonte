@@ -17,7 +17,7 @@ const CategoriesListContainer = () => {
 
   return (
     <div className="app-container">
-      <div className="list-item-container">
+      <div className="categories-container">
         <CategoriesList categories={categories} />
       </div>
     </div>

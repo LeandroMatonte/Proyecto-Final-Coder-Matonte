@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import Item from "../Item/Item";
 
 const ItemList = ({ products }) => {
@@ -6,11 +5,7 @@ const ItemList = ({ products }) => {
     <div className="app-container">
       <div className="list-item-container">
         {products.map((product) => {
-          return (
-            <Link key={product.id} to={`/item/${product.id}`}>
-              <Item product={product} />
-            </Link>
-          );
+          return <Item product={product} />;
         })}
       </div>
     </div>

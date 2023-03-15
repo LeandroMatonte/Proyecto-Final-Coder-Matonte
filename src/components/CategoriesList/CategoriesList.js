@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import "./CategoriesList.css";
 
 const CategoriesList = ({ categories }) => {
   return categories.map((category) => (

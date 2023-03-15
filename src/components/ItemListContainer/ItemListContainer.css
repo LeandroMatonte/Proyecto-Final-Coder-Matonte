@@ -65,23 +65,6 @@
   margin: 0;
 }
 
-.button-controller-container {
-  display: flex;
-  justify-content: space-between;
-  padding: calc(var(--padding-s) / 2);
-}
-
-.button-controller {
-  border: none;
-  background: #fff;
-  cursor: pointer;
-  height: 44px;
-  width: 44px;
-  border-radius: var(--border-radius-s);
-  /* box-shadow: 1px 0px 6px #0001, 0px 2px 6px #0002; */
-  border: 1px solid #0002;
-}
-
 @media (max-width: 1600px) {
   .list-item-container {
     grid-template-columns: repeat(4, 1fr);
