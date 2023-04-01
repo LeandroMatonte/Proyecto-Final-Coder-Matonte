@@ -112,7 +112,7 @@ const ItemDetailContainer = () => {
           </Swiper>
         </div>
       ) : (
-        ""
+        <Skeleton height={"400px"}/>
       )}
     </div>
   );
