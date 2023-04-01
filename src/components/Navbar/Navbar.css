@@ -1,6 +1,5 @@
 .Navbar {
-  --nav-bar-height: 80px;
-  background-color: var(--color-principal);
+  background-color: var(--primary-color);
   padding-left: var(--padding-sides-home);
   padding-right: var(--padding-sides-home);
   height: var(--nav-bar-height);
@@ -74,7 +73,7 @@
   flex-direction: column;
   top: var(--nav-bar-height);
   left: 0;
-  background-color: var(--color-principal);
+  background-color: var(--primary-color);
   height: 0px;
   width: 100%;
   transition: all .225s ease-in;

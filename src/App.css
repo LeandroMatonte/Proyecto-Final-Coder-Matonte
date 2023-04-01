@@ -1,4 +1,6 @@
 :root {
+  --nav-bar-height: 80px;
+  --footer-height: 160px; 
   --padding-s: 20px;
   --padding-m: 40px;
   --padding-g: 120px;
@@ -13,14 +15,14 @@
   --gap-list-item-m: 40px;
   --gap-general-s: 20px;
   --border-radius-s: 6px;
-  --color-principal: #191919;
-  --font-size-title: 18px;
-  --font-size-price: 20px;
-  --font-size-description: 18px;
+  --primary-color: #191919;
+  --font-size-title: 16px;
+  --font-size-price: 18px;
+  --font-size-description: 16px;
 }
 
 .app-container {
-  min-height: 100vh;
+  min-height: calc(100vh - var(--nav-bar-height) - var(--footer-height));
   font-size: calc(10px + 2vmin);
   padding-left: var(--padding-g);
   padding-right: var(--padding-g);

@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 
 const cartContext = createContext({
   cart: [],
@@ -6,7 +6,6 @@ const cartContext = createContext({
 
 const CartContextProvider = (props) => {
   const [cart, setCart] = useState([]);
-  const [cartCount, setCartCount] = useState(0);
 
   const addItem = (item, quantity) => {
     let newCart = cart;
@@ -21,6 +20,37 @@ const CartContextProvider = (props) => {
     setCart(newCart);
   };
 
+  const increaseProductQuantity = (id) => {
+    setCart((currentCart) =>
+      currentCart.map((product) => {
+        if (product.id === id) {
+          return { ...product, quantity: product.quantity + 1 };
+        } else {
+          return product;
+        }
+      })
+    );
+  };
+
+  const decreaseProductQuantity = (id) => {
+    if (getProductQuantity(id) > 1) {
+      setCart((currentCart) =>
+        currentCart.map((product) => {
+          if (product.id === id) {
+            return { ...product, quantity: product.quantity - 1 };
+          } else {
+            return product;
+          }
+        })
+      );
+    }
+  };
+
+  const getProductQuantity = (id) => {
+    const product = cart.find((product) => product.id === id);
+    return product ? product.quantity : 0;
+  };
+
   const removeItem = (id) => {
     setCart(cart.filter((product) => product.id !== id));
   };
@@ -29,25 +59,40 @@ const CartContextProvider = (props) => {
     return cart.findIndex((product) => product.id === id) >= 0;
   };
 
-  useEffect(() => {
-    const getCartCount = () => {
-      const totalQuantity = cart.reduce(
-        (total, product) => total + product.quantity,
-        0
-      );
-      setCartCount(totalQuantity);
-    };
+  const getCartCount = () => {
+    const totalQuantity = cart.reduce(
+      (total, product) => total + product.quantity,
+      0
+    );
+    return totalQuantity;
+  };
 
-    getCartCount();
-  }, [cart]);
+  const getCartTotalPrice = () => {
+    const totalPrice = cart.reduce(
+      (total, product) => total + (product.quantity * product.price),
+      0
+    );
+    return totalPrice;
+  };
 
-  // const clear = () => {
-  //   setCart([]);
-  // };
+  const clear = () => {
+    setCart([]);
+  };
 
   return (
     <cartContext.Provider
-      value={{ cart, cartCount, addItem, removeItem, isInCart }}
+      value={{
+        cart,
+        addItem,
+        removeItem,
+        isInCart,
+        getCartCount,
+        increaseProductQuantity,
+        decreaseProductQuantity,
+        getProductQuantity,
+        getCartTotalPrice,
+        clear
+      }}
     >
       {props.children}
     </cartContext.Provider>

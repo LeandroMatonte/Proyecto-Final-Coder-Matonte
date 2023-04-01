@@ -8,8 +8,9 @@ const Item = ({ product }) => {
         <div className="item-image-container">
           <img
             className="item-image"
-            src={product ? product.images[0] : ""}
+            src={product ? product.image : ""}
             alt=""
+            loading="lazy"
           />
         </div>
         <div className="item-info">

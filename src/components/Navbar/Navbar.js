@@ -7,6 +7,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Navbar = () => {
   const { pathname } = useLocation();
+  const locationWSmallNav = ["item", "cart"];
+  const currentLocation = pathname.split("/")[1];
 
   const [showNav, setShowNav] = useState(false);
 
@@ -17,7 +19,7 @@ const Navbar = () => {
   return (
     <header
       className={`Navbar ${showNav ? "active" : ""} ${
-        pathname.startsWith("/item/") ? "Navbar-item-detail" : ""
+        locationWSmallNav.includes(currentLocation) ? "Navbar-item-detail" : ""
       }`}
     >
       <nav>

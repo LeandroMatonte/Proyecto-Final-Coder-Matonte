@@ -16,7 +16,6 @@
 }
 
 .item:hover {
-  cursor: pointer;
   box-shadow: 6px 6px 24px #d1d1d1, -6px -6px 24px #ffffff;
 }
 
@@ -49,7 +48,6 @@
   height: 100%;
   width: 100%;
   object-fit: cover;
-  object-position: top;
   transition: transform 0.225s ease-in;
 }
 
