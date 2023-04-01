@@ -13,7 +13,7 @@ import "swiper/css/navigation";
 import "./ItemDetailContainer.css";
 
 import { db } from "../../database/firebase";
-import { doc, getDoc } from "firebase/firestore";
+import { collection, doc, getDoc, getDocs, query, where } from "firebase/firestore";
 import CartController from "../CartController/CartController";
 
 const ItemDetailContainer = () => {
@@ -31,20 +31,24 @@ const ItemDetailContainer = () => {
     getProduct();
   }, [id]);
 
-  // useEffect(() => {
-  //   if (product) {
-  //     const getSimilarProducts = async () => {
-  //       const response = await fetch(
-  //         `${process.env.REACT_APP_API_URL}/products/?offset=0&limit=10&categoryId=${product.category.id}`
-  //       );
-  //       let data = await response.json();
-  //       data = data.filter((product) => product.id !== parseInt(id));
-  //       setSimilarProducts(data);
-  //     };
+  useEffect(() => {
+    if (product) {
+      const getSimilarProducts = async () => {
+        setSimilarProducts([]);
+        const productsCollection = collection(db, "products");
+        let q = productsCollection;
+        q = query(productsCollection, where("category", "==", product.category));
+        const querySnapshot = await getDocs(q);
+        const data = querySnapshot.docs.map((document) => ({
+          ...document.data(),
+          id: document.id,
+        }));
+        setSimilarProducts(data.filter((document) => document.id !== product.id));
+      };
 
-  //     getSimilarProducts();
-  //   }
-  // }, [product]);
+      getSimilarProducts();
+    }
+  }, [product]);
 
   const breakpointsSwiper = {
     768: {

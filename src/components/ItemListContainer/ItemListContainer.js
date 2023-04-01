@@ -27,9 +27,6 @@ const ItemListContainer = () => {
       } catch (err) {
         console.log(err);
       }
-      // if (id) {
-      //   data = filterByCategory(data);
-      // }
     };
 
     getProducts();
