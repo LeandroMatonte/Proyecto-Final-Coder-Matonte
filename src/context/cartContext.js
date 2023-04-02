@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import { toast } from "react-hot-toast";
 
 const cartContext = createContext({
   cart: [],
@@ -18,6 +19,7 @@ const CartContextProvider = (props) => {
       newCart = [...newCart, item];
     }
     setCart(newCart);
+    toast.success("Producto agregado");
   };
 
   const increaseProductQuantity = (id) => {

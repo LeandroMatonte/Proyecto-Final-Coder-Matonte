@@ -71,6 +71,14 @@
   width: 100%;
 }
 
+.btn:disabled {
+  filter: opacity(0.7);
+}
+
+.btn:disabled:hover {
+  cursor: default;
+}
+
 .swiper-similar-products {
   padding: 0 var(--padding-s) var(--padding-m) var(--padding-s);
   user-select: none;

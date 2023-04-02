@@ -1,20 +1,27 @@
 import "./Navbar.css";
 import CartWidget from "../CartWidget/CartWidget";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import cartContext from "../../context/cartContext";
 
 const Navbar = () => {
+  const [showNav, setShowNav] = useState(false);
+  const [cartCount, setCartCount] = useState(0);
+  const { cart, getCartCount } = useContext(cartContext);
+
   const { pathname } = useLocation();
   const locationWSmallNav = ["item", "cart"];
   const currentLocation = pathname.split("/")[1];
 
-  const [showNav, setShowNav] = useState(false);
-
   const toggleNavItems = () => {
     setShowNav(!showNav);
   };
+
+  useEffect(() => {
+    setCartCount(getCartCount());
+  }, [cart]);
 
   return (
     <header
@@ -27,21 +34,25 @@ const Navbar = () => {
           <div className="brand">
             <Link to="/">Carti</Link>
           </div>
-          <FontAwesomeIcon
-            className={`hamburguer ${showNav ? "active" : ""}`}
-            onClick={toggleNavItems}
-            icon={showNav ? faTimes : faBars}
-          />
+          <div className="hamburguer-container">
+            <FontAwesomeIcon
+              className={`hamburguer ${showNav ? "active" : ""}`}
+              onClick={toggleNavItems}
+              icon={showNav ? faTimes : faBars}
+            />
+            {cartCount > 0 ? (
+              <div className="cart-quantity">{cartCount}</div>
+            ) : (
+              ""
+            )}
+          </div>
         </div>
         <div className="nav-links-container">
           <NavLink to="/categories" className="nav-link">
             Categorías
           </NavLink>
-          <NavLink to="/contact" className="nav-link">
-            Contacto
-          </NavLink>
           <Link to="/cart" className="nav-link">
-            <CartWidget />
+            <CartWidget cartCount={cartCount} />
           </Link>
         </div>
         <div className="nav-links-container-menu">
@@ -52,19 +63,12 @@ const Navbar = () => {
           >
             Categorías
           </NavLink>
-          <NavLink
-            to="/contact"
-            onClick={() => setShowNav(false)}
-            className="nav-link"
-          >
-            Contacto
-          </NavLink>
           <Link
             to="/cart"
             onClick={() => setShowNav(false)}
             className="nav-link"
           >
-            <CartWidget />
+            <CartWidget cartCount={cartCount} />
           </Link>
         </div>
       </nav>

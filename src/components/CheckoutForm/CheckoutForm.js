@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 const CheckoutForm = () => {
   const { cart, getCartTotalPrice, clear } = useContext(cartContext);
   const [checkOutNumber, setCheckOutNumber] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
 
   const [checkoutData, setCheckoutData] = useState({
     name: "",
@@ -27,6 +28,7 @@ const CheckoutForm = () => {
   }, [cart]);
 
   const checkOut = async () => {
+    setIsLoading(true);
     const response = await addDoc(collection(db, "checkouts"), {
       name: checkoutData.name,
       surname: checkoutData.surname,
@@ -40,6 +42,7 @@ const CheckoutForm = () => {
     });
     clear();
     setCheckOutNumber(response.id);
+    setIsLoading(false);
   };
 
   const isValid = () => {
@@ -120,9 +123,9 @@ const CheckoutForm = () => {
               className="btn btn-primary"
               type="button"
               onClick={checkOut}
-              disabled={!isValid()}
+              disabled={!isValid() || isLoading}
             >
-              Finalizar
+              {isLoading ? <span className="loader"></span> : "Finalizar"}
             </button>
           </div>
         </form>

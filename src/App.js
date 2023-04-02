@@ -1,5 +1,5 @@
 import "./App.css";
-import 'react-loading-skeleton/dist/skeleton.css'
+import "react-loading-skeleton/dist/skeleton.css";
 import Navbar from "./components/Navbar/Navbar";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import CategoriesListContainer from "./components/CategoriesListContainer/CategoriesListContainer";
@@ -10,12 +10,14 @@ import { CartContextProvider } from "./context/cartContext";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import CartListContainer from "./components/CartListContainer/CartListContainer";
 import CheckoutForm from "./components/CheckoutForm/CheckoutForm";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   return (
     <CartContextProvider>
       <BrowserRouter basename={process.env.PUBLIC_URL}>
         <ScrollToTop />
+        <Toaster position="bottom-right" reverseOrder={false} />
         <Navbar />
         <Routes>
           <Route exact path="/" element={<ItemListContainer />} />
