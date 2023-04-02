@@ -76,8 +76,8 @@ const CheckoutForm = () => {
               <CartItemSimple product={product} key={product.id} />
             ))}
             <div className="checkout-details-total">
-              <h5>Total: </h5>
-              <h5>$ {totalPrice.toLocaleString("es-ES")}</h5>
+              <h1>Total: </h1>
+              <h1>$ {totalPrice.toLocaleString("es-ES")}</h1>
             </div>
           </div>
           <div className="form-container">

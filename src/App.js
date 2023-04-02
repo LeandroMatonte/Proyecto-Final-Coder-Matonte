@@ -1,5 +1,5 @@
-import "./App.css";
 import "react-loading-skeleton/dist/skeleton.css";
+import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import CategoriesListContainer from "./components/CategoriesListContainer/CategoriesListContainer";

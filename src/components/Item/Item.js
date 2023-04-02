@@ -15,7 +15,7 @@ const Item = ({ product }) => {
         </div>
         <div className="item-info">
           <h1 className="item-title">{product ? product.title : ""}</h1>
-          <p className="item-price">$ {product ? product.price : ""}</p>
+          <p className="item-price">$ {product ? parseInt(product.price).toLocaleString("es-UY") : ""}</p>
         </div>
       </div>
     </Link>

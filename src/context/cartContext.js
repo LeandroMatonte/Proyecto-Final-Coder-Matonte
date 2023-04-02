@@ -19,7 +19,12 @@ const CartContextProvider = (props) => {
       newCart = [...newCart, item];
     }
     setCart(newCart);
-    toast.success("Producto agregado");
+    toast.success("Producto agregado", {
+      iconTheme: {
+        primary: "#3f88c5",
+        secondary: "#FFFAEE",
+      },
+    });
   };
 
   const increaseProductQuantity = (id) => {
@@ -71,7 +76,7 @@ const CartContextProvider = (props) => {
 
   const getCartTotalPrice = () => {
     const totalPrice = cart.reduce(
-      (total, product) => total + (product.quantity * product.price),
+      (total, product) => total + product.quantity * product.price,
       0
     );
     return totalPrice;
@@ -93,7 +98,7 @@ const CartContextProvider = (props) => {
         decreaseProductQuantity,
         getProductQuantity,
         getCartTotalPrice,
-        clear
+        clear,
       }}
     >
       {props.children}

@@ -4,7 +4,7 @@
   margin-top: var(--margin-m);
   margin-bottom: var(--margin-m);
   box-shadow: 4px 4px 12px #d1d1d1, -4px -4px 12px #ffffff;
-  gap: calc(var(--gap-list-item-s) * 2);
+  gap: var(--gap-list-item-s);
   padding: var(--padding-s);
   border-radius: var(--border-radius-s);
 }
@@ -42,7 +42,11 @@
 .checkout-description {
   margin: 0;
   margin-bottom: var(--margin-s);
-  font-size: clamp(10px, var(--font-size-title), 20px);
+  font-size: clamp(
+    calc(var(--font-size-description)),
+    1vh,
+    calc(var(--font-size-description) * 1.5)
+  );
   font-weight: 400;
 }
 
@@ -55,16 +59,23 @@
   display: flex;
   justify-content: space-between;
   margin-top: auto;
+  border-top: 1px solid #d1d1d1;
+  padding-top: calc(var(--padding-s) / 2);
 }
 
-.checkout-details-total h5 {
+.checkout-details-total h1 {
+  font-size: clamp(
+    calc(var(--font-size-title)) * 1.2,
+    1vw,
+    calc(var(--font-size-title) * 2)
+  );
+  font-weight: 500;
   margin: 0;
-  font-weight: 400;
 }
-
 
 @media (max-width: 900px) {
   .checkout-form-container {
     flex-direction: column;
+    gap: calc(var(--gap-list-item-s) * 2);
   }
 }

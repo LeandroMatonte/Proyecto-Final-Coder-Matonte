@@ -19,7 +19,7 @@ const CartItem = ({ product }) => {
       </div>
       <div className="cart-item-info">
         <CartController product={product} type="cart" />
-        <p className="cart-item-price">$ {product ? (product.price * product.quantity).toLocaleString('es-UY') : ""}</p>
+        <p className="cart-item-price">$ {product ? parseInt(product.price * product.quantity).toLocaleString('es-UY') : ""}</p>
       </div>
     </div>
   );

@@ -81,7 +81,7 @@ const ItemDetailContainer = () => {
               {product.title || <Skeleton />}
             </h1>
             <p className="item-detail-price">
-              {product.price ? `$ ${product.price}` : <Skeleton />}
+              {product ? `$ ${parseInt(product.price).toLocaleString("es-UY")}` : <Skeleton />}
             </p>
 
             <CartController product={product} />

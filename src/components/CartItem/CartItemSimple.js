@@ -8,7 +8,7 @@ const CartItemSimple = ({ product }) => {
       </h1>
       <p className="cart-item-price">
         {product
-          ? "$ " + (product.price * product.quantity).toLocaleString("es-UY")
+          ? "$ " + parseInt(product.price * product.quantity).toLocaleString("es-UY")
           : ""}
       </p>
     </div>

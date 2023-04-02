@@ -28,7 +28,7 @@
 }
 
 .cart-item .cart-item-title {
-  font-size: clamp(calc(var(--font-size-title)) * .5, var(--font-size-title), calc(var(--font-size-title) * 1.5));
+  font-size: clamp(calc(var(--font-size-title)) * 1, 1vw, calc(var(--font-size-title) * 1.5));
   font-weight: 400;
   margin: 0;
 }
@@ -36,6 +36,8 @@
 .cart-item.simple {
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: calc(var(--margin-s) / 2);
 }
 
 .total-price-container {
@@ -68,9 +70,10 @@
   font-size: var(--font-size-price);
   font-weight: 400;
   margin: 0;
-  font-size: clamp(calc(var(--font-size-title)) * .5, calc(var(--font-size-title) * 1.2), calc(var(--font-size-title) * 1.6));
+  font-size: clamp(calc(var(--font-size-title)) * 1, 1vw, calc(var(--font-size-title) * 1.6));
   width: 140px;
   text-align: end;
+  white-space: nowrap;
 }
 
 .cart-item.simple .cart-item-price {
